@@ -1,16 +1,30 @@
 [build]
-  command = "npm run build"
+  base = "frontend"
+  command = "CI= npm run build"
   publish = "build"
   functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "16"
   NPM_VERSION = "8"
+  CI = "false"
 
 [dev]
   command = "npm start"
   port = 3000
   targetPort = 3000
+
+# Production context
+[context.production]
+  command = "CI= npm run build"
+
+# Deploy Preview context
+[context.deploy-preview]
+  command = "CI= npm run build"
+
+# Branch deploy context
+[context.branch-deploy]
+  command = "CI= npm run build"
 
 [[redirects]]
   from = "/*"
@@ -24,4 +38,4 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data:; worker-src 'self' blob:;"
+    Content-Security-Policy = "default-src 'self' https: 'unsafe-inline' 'unsafe-eval'; img-src 'self' https: data:; worker-src 'self' blob:; frame-src 'self' https://www.youtube.com;"
