@@ -1,0 +1,20 @@
+{
+  "deploy_previews": {
+    "enabled": true,
+    "annotations": {
+      "netlify": {
+        "prCommentEnabled": true,
+        "prCommentTemplate": "🎬 Preview your changes: ${deploy_url}\n\n- Branch: ${branch}\n- Commit: ${commit}\n- Deploy Status: ${status}"
+      }
+    }
+  },
+  "branch_deploy": {
+    "enabled": true,
+    "prefix": "preview-",
+    "annotations": {
+      "github": {
+        "deploymentEnvironment": "Preview"
+      }
+    }
+  }
+}

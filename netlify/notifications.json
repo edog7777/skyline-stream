@@ -1,0 +1,28 @@
+{
+  "notifications": [
+    {
+      "event": "deploy_succeeded",
+      "type": "email",
+      "payload": {
+        "subject": "✅ Skyline Stream: Deployment Successful",
+        "body": "Your site has been successfully deployed to production."
+      }
+    },
+    {
+      "event": "deploy_failed",
+      "type": "email",
+      "payload": {
+        "subject": "❌ Skyline Stream: Deployment Failed",
+        "body": "There was an issue deploying your site. Please check the deploy log."
+      }
+    },
+    {
+      "event": "form_submission",
+      "type": "email",
+      "payload": {
+        "subject": "📝 New Contact Form Submission",
+        "body": "You have received a new contact form submission."
+      }
+    }
+  ]
+}
